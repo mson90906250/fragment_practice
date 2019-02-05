@@ -11,6 +11,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ExampleFragment fragment = new ExampleFragment();
+        //將data帶入fragment-------方法一
+        Bundle args = new Bundle();
+        args.putString("argText","Hello World");
+        args.putInt("argNumber",123);
+        fragment.setArguments(args);
 
         //將R.id.container換成fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
