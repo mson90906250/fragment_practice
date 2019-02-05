@@ -41,6 +41,7 @@ public class FragmentA extends Fragment {
     }
 
     @Override
+    //當fragment第一次attach一個activity時執行
     public void onAttach(Context context) {
         super.onAttach(context);
         //判斷context(即Activity)是否implement FragmentAListener
@@ -49,5 +50,11 @@ public class FragmentA extends Fragment {
         }else {
             throw new RuntimeException(context.toString()+"must implement FragmentAListener");
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 }
