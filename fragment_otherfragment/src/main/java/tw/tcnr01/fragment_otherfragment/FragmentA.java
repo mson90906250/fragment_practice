@@ -1,5 +1,6 @@
 package tw.tcnr01.fragment_otherfragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,5 +38,16 @@ public class FragmentA extends Fragment {
         });
 
         return  v;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        //判斷context(即Activity)是否implement FragmentAListener
+        if (context instanceof FragmentAListener){
+            listener = (FragmentAListener) context;
+        }else {
+            throw new RuntimeException(context.toString()+"must implement FragmentAListener");
+        }
     }
 }
