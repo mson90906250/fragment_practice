@@ -14,6 +14,11 @@ public class FragmentA extends Fragment {
     private EditText editText;
     private Button buttonOk;
 
+    //新增一個interface
+    public  interface FragmentAListener{
+        void inputASent(CharSequence input);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
