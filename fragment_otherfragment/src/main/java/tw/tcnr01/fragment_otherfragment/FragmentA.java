@@ -40,6 +40,11 @@ public class FragmentA extends Fragment {
         return  v;
     }
 
+    //新增一個方法用來更新editText的内容
+    public void updateEditText(CharSequence newtext){
+        editText.setText(newtext);
+    }
+
     @Override
     //當fragment第一次attach一個activity時執行
     public void onAttach(Context context) {
