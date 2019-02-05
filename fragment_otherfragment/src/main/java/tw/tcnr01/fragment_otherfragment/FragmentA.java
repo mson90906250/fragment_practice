@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class FragmentA extends Fragment {
+    private  FragmentAListener listener;
     private EditText editText;
     private Button buttonOk;
 
@@ -26,6 +27,14 @@ public class FragmentA extends Fragment {
 
         editText = v.findViewById(R.id.edit_text);
         buttonOk = v.findViewById(R.id.button_ok);
+        //設監聽
+        buttonOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CharSequence input = editText.getText();
+                listener.inputASent(input);
+            }
+        });
 
         return  v;
     }
